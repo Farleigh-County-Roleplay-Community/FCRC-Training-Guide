@@ -4,28 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farleigh County Training Guide</title>
-  <!-- Link to your CSS file -->
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Dark Theme Basic Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header .logo {
+      height: 80px;
+    }
+
+    main.intro {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    main.intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffa500; /* optional accent color */
+    }
+
+    main.intro p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      text-decoration: none;
+      background-color: #ffa500;
+      color: #121212;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ffb733;
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer .banner {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header with logo -->
+  <!-- Header -->
   <header>
     <img src="images/logo.png" alt="Farleigh County Logo" class="logo">
   </header>
 
-  <!-- Main entrance content -->
+  <!-- Main Entrance -->
   <main class="intro">
     <h1>Welcome to the Farleigh County Training Guide</h1>
     <p>Click the button below to enter the full training guide.</p>
-    <!-- Button linking to guide.html -->
     <a href="guide.html" class="btn">Enter Guide</a>
   </main>
 
-  <!-- Footer with banner -->
+  <!-- Footer with Banner -->
   <footer>
     <img src="images/banner.png" alt="Farleigh County Banner" class="banner">
     <p>&copy; 2025 Farleigh County Roleplay</p>
   </footer>
 </body>
 </html>
-
