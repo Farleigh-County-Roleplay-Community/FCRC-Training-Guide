@@ -1,197 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farleigh County Training Guide</title>
-  <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farleigh County Training Guide</title>
+<style>
+  /* General Layout */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+  }
+
+  header, footer {
+    grid-column: 1 / span 2;
+    text-align: center;
+    padding: 20px;
+  }
+
+  header img.logo { max-width: 100px; }
+  footer img.banner { max-width: 100%; margin-top: 10px; border-radius: 8px; }
+
+  /* Sidebar */
+  aside {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-y: auto;
+    max-height: calc(100vh - 160px);
+  }
+
+  aside h2 { margin-bottom: 15px; }
+  .trainee-form input, .trainee-form button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #333;
+    color: #fff;
+  }
+  #traineeList li {
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .score-entry {
+    margin-top: 5px;
+  }
+  .score-entry label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 2px;
+  }
+  .score-entry input {
+    width: 100%;
+    padding: 4px;
+    border-radius: 4px;
+    border: none;
+    background: #333;
+    color: #fff;
+  }
+
+  /* Main guide content */
+  main {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 12px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2 { color: #fff; margin-top: 0; }
+  .guide-header p { color: #ccc; }
+  .guide-section { margin-bottom: 40px; }
+  .copy-text {
+    background: #2a2a2a;
+    border-left: 4px solid #4cafef;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 6px;
+  }
+  .instructor-instructions {
+    background: #252525;
+    border-left: 4px solid #f39c12;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 6px;
+  }
+  .transition {
+    text-align: center;
+    font-style: italic;
+    color: #bbb;
+    margin: 20px 0;
+  }
+  img.course { max-width: 100%; margin: 10px 0; border-radius: 8px; }
+
+  /* Buttons */
+  button {
+    cursor: pointer;
+    background: #4cafef;
+    color: #fff;
+    font-weight: bold;
+  }
+  button:hover {
+    background: #1c86ee;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <h2>Trainees</h2>
-      <form id="traineeForm">
-        <input type="text" id="traineeName" placeholder="Enter trainee name" maxlength="20">
-        <button type="button" id="addTrainee">Add Trainee</button>
-      </form>
-      <ul id="traineeList"></ul>
-    </aside>
+  <header>
+    <img src="images/logo.png" alt="Farleigh County Logo" class="logo">
+    <h1>Farleigh County Training Guide</h1>
+  </header>
 
-    <!-- Main Guide -->
-    <main class="guide">
-      <header class="guide-header">
-        <h1>Farleigh County Training Guide</h1>
-        <p>Welcome trainers! Use this guide to run your sessions step by step.</p>
-      </header>
+  <aside>
+    <h2>Trainees</h2>
+    <div class="trainee-form">
+      <input type="text" id="traineeName" placeholder="Enter trainee name" maxlength="20">
+      <button type="button" id="addTrainee">Add Trainee</button>
+    </div>
+    <ul id="traineeList"></ul>
+  </aside>
 
-      <!-- Intro -->
-      <section class="guide-section">
-        <h2>Intro</h2>
-        <div class="copy-text">
-          <p>Hello! My name is [INSERT NAME], and I’ll be your cohost today.  
-          Your training will be split into two categories: <strong>Theoretical</strong> and <strong>Physical</strong>.  
-          Within each are different activities you will complete step by step.</p>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Greet trainees, introduce yourself, and explain the training structure clearly before starting.</p>
-        </div>
-      </section>
+  <main>
+    <header class="guide-header">
+      <h1>Farleigh County Training Guide</h1>
+      <p>Welcome trainers! Use this guide to run your sessions step by step.</p>
+    </header>
 
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
+    <!-- Sections -->
+    <!-- Intro -->
+    <section class="guide-section">
+      <h2>Intro</h2>
+      <div class="copy-text">
+        <p>Hello! My name is [INSERT NAME], and I’ll be your cohost today.  
+        Training is split into <strong>Theoretical</strong> and <strong>Physical</strong> sections.</p>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Introduce yourself and explain the training structure.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <!-- Starter Quiz -->
-      <section class="guide-section">
-        <h2>Starter Quiz (Theoretical)</h2>
-        <div class="copy-text">
-          <p>Please answer the following questions one by one:</p>
-          <ol>
-            <li>What does FRP mean in ER:LC, and why is it important to avoid?</li>
-            <li>Explain what “GTA Driving” means and why it is not allowed.</li>
-            <li>What is the maximum speed limit in civilian areas unless otherwise stated?</li>
-            <li>What should you do if you encounter a priority situation while on patrol?</li>
-          </ol>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Ask questions one by one. Give trainees time to respond.  
-          Ensure understanding before moving forward.</p>
-        </div>
-      </section>
+    <!-- Starter Quiz -->
+    <section class="guide-section">
+      <h2>Starter Quiz (Theoretical)</h2>
+      <div class="copy-text">
+        <p>Questions:</p>
+        <ol>
+          <li>What does FRP mean in ER:LC, and why is it important?</li>
+          <li>Explain “GTA Driving” and why it is not allowed.</li>
+          <li>Why is communication important during roleplay?</li>
+        </ol>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Ask questions one by one, explain reasoning after answers.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
+    <!-- Scenario Quiz -->
+    <section class="guide-section">
+      <h2>Scenario Quiz (Theoretical)</h2>
+      <div class="copy-text">
+        <ol>
+          <li>You see someone running red lights repeatedly. What do you do?</li>
+          <li>Another player begins shooting without reason. How do you respond?</li>
+          <li>You’re in a pursuit but suspect drives unrealistically. Actions?</li>
+        </ol>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Read scenarios slowly. Evaluate trainee responses professionally.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <!-- Scenario Quiz -->
-      <section class="guide-section">
-        <h2>Scenario Quiz (Theoretical)</h2>
-        <div class="copy-text">
-          <p>You will be given scenarios to explain how you would respond:</p>
-          <ol>
-            <li>You see someone running a red light in River City. What do you do?</li>
-            <li>A civilian reports reckless driving. How do you proceed?</li>
-            <li>You encounter a roleplayer refusing to comply. How do you handle it?</li>
-          </ol>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Present each scenario individually.  
-          Evaluate reasoning, not just the answer. Encourage professionalism.</p>
-        </div>
-      </section>
+    <!-- Driving Test 1 -->
+    <section class="guide-section">
+      <h2>Driving Test 1 (Physical)</h2>
+      <img src="images/course1.png" alt="Driving Test Course 1" class="course">
+      <div class="copy-text">
+        <p>Drive from the Sheriff’s Office to River City Bank, following all traffic laws.</p>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Observe signaling, speed, and roleplay realism.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
+    <!-- Patrolling -->
+    <section class="guide-section">
+      <h2>Patrolling (Physical)</h2>
+      <div class="copy-text">
+        <p>Patrol River City and identify rule breakers. Trainers may act as rule breakers.</p>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Ensure trainees respond professionally.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <!-- Driving Test -->
-      <section class="guide-section">
-        <h2>Driving Test (Physical)</h2>
-        <img src="images/course1.png" alt="Driving Test Course 1">
-        <div class="copy-text">
-          <p>Drive from the Sheriff’s Office to River City Bank, following all traffic laws.</p>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Observe for safe turns, speed limits, signaling, and roleplay standards.</p>
-        </div>
-      </section>
+    <!-- Driving Test 2 -->
+    <section class="guide-section">
+      <h2>Driving Test 2 (Physical)</h2>
+      <img src="images/course2.png" alt="Driving Test Course 2" class="course">
+      <div class="copy-text">
+        <p>Drive from River City to Springfield Main Street following all traffic laws.</p>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Focus on highway safety and lane discipline.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
+    <!-- Scenarios -->
+    <section class="guide-section">
+      <h2>Scenarios (Physical)</h2>
+      <div class="copy-text">
+        <ul>
+          <li>Reckless driver</li>
+          <li>Civilian dispute</li>
+          <li>Traffic collision</li>
+          <li>Bank robbery roleplay</li>
+        </ul>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Provide realistic mod calls. Observe decision-making.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <!-- Patrolling -->
-      <section class="guide-section">
-        <h2>Patrolling (Physical)</h2>
-        <div class="copy-text">
-          <p>You will patrol River City and monitor for rule breakers.</p>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Trainers will act as rule breakers.  
-          Evaluate how trainees respond, ensuring they stay professional.</p>
-        </div>
-      </section>
+    <!-- Command Practice -->
+    <section class="guide-section">
+      <h2>Command Practice (Physical)</h2>
+      <div class="copy-text">
+        <ul>
+          <li>Set a priority timer</li>
+          <li>Check active moderators</li>
+          <li>Issue server message</li>
+          <li>Final command: /load</li>
+        </ul>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Ensure trainees know commands and use them properly.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
+    <!-- Ending Questions -->
+    <section class="guide-section">
+      <h2>Ending Questions (Theoretical)</h2>
+      <div class="copy-text">
+        <ul>
+          <li>Most important rule in ER:LC?</li>
+          <li>Handling disrespectful civilians?</li>
+          <li>Why teamwork is important?</li>
+        </ul>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Discuss answers and give feedback before results.</p>
+      </div>
+    </section>
+    <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
 
-      <!-- Driving Test 2 -->
-      <section class="guide-section">
-        <h2>Driving Test 2 (Physical)</h2>
-        <img src="images/course2.png" alt="Driving Test Course 2">
-        <div class="copy-text">
-          <p>Drive from River City to Springfield Main Street, following all traffic laws.</p>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Same as first driving test, but with more traffic interactions.</p>
-        </div>
-      </section>
+    <!-- Results -->
+    <section class="guide-section">
+      <h2>Results</h2>
+      <img src="images/results.png" alt="Results Layout" class="course">
+      <div class="copy-text">
+        <p>Stand in formation. Pass: “Congratulations!” Fail: “Please reapply after preparation.”</p>
+      </div>
+      <div class="instructor-instructions">
+        <p><strong>Instructor:</strong> Deliver results clearly and respectfully.</p>
+      </div>
+    </section>
+  </main>
 
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
-
-      <!-- Scenarios -->
-      <section class="guide-section">
-        <h2>Scenarios (Physical)</h2>
-        <div class="copy-text">
-          <p>Each trainee will complete 2 moderator calls. Examples:</p>
-          <ul>
-            <li>Reckless driver in River City</li>
-            <li>Civilian dispute in Springfield</li>
-            <li>Traffic collision on highway</li>
-            <li>Bank robbery roleplay</li>
-          </ul>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Provide realistic mod calls. Observe decision-making, teamwork, and communication.</p>
-        </div>
-      </section>
-
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
-
-      <!-- Command Practice -->
-      <section class="guide-section">
-        <h2>Command Practice (Physical)</h2>
-        <div class="copy-text">
-          <p>Demonstrate knowledge of common commands:</p>
-          <ul>
-            <li>How do you set a priority timer?</li>
-            <li>How do you check active moderators?</li>
-            <li>How do you issue a server message?</li>
-            <li>Final command: <strong>/load</strong> to return to the meeting room.</li>
-          </ul>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Ensure trainees know each command and when to use it.</p>
-        </div>
-      </section>
-
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
-
-      <!-- Ending Questions -->
-      <section class="guide-section">
-        <h2>Ending Questions (Theoretical)</h2>
-        <div class="copy-text">
-          <p>Final questions to conclude training:</p>
-          <ul>
-            <li>What’s the most important rule in ER:LC roleplay?</li>
-            <li>How do you handle a disrespectful civilian?</li>
-            <li>Why is teamwork important in patrols?</li>
-          </ul>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Discuss answers and give feedback before proceeding to results.</p>
-        </div>
-      </section>
-
-      <p class="transition">###### Now we’re done with this section. Let’s go to the next section!</p>
-
-      <!-- Results -->
-      <section class="guide-section">
-        <h2>Results</h2>
-        <img src="images/results.png" alt="Results Layout">
-        <div class="copy-text">
-          <p>Trainees will stand in formation.  
-          If passed: “Congratulations, you’ve passed training!”  
-          If failed: “Unfortunately, you did not pass. Please reapply after further preparation.”</p>
-        </div>
-        <div class="instructor-instructions">
-          <p><strong>Instructor:</strong> Deliver results clearly, fairly, and respectfully.</p>
-        </div>
-      </section>
-    </main>
-  </div>
+  <footer>
+    <p>&copy; 2025 Farleigh County Roleplay</p>
+    <img src="images/stpbanner.png" alt="Farleigh County Banner" class="banner">
+  </footer>
 
   <script>
     const addBtn = document.getElementById("addTrainee");
@@ -227,10 +320,7 @@
       sections.forEach(sec => {
         const div = document.createElement("div");
         div.classList.add("score-entry");
-        div.innerHTML = `
-          <label>${sec.name} (/${sec.max}): </label>
-          <input type="number" min="0" max="${sec.max}">
-        `;
+        div.innerHTML = `<label>${sec.name} (/${sec.max}):</label><input type="number" min="0" max="${sec.max}">`;
         scoreDiv.appendChild(div);
       });
 
